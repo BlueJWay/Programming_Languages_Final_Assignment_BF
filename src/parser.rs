@@ -27,7 +27,7 @@ pub fn generate_expression(mut v: &mut Vec<Token>) -> Expression {
        Token::Constant(x) => Expression::Number(x),
        Token::LParen => generate_expression(v),
        Token::RParen => panic!("Right paren handled elsewhere"),
-       Token::Oper(Operator::Plus) => generate_add(v), 
+       Token::Oper(Operator::Add) => generate_add(v), 
        Token::Oper(Operator::Mult) => generate_mult(v),
         _ => panic!("I don't know how to do this yet")
    }

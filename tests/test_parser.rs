@@ -12,14 +12,10 @@ mod parser_test {
     use super::*;
 
     #[test]
-    fn [parser_exists(){
+    fn  parser_exists(){
         assert_eq!(1, 1);
     }
 
-    #[test]
-    fn parser_exists() {
-        assert_eq!(1, 1);
-    }
 
     #[test]
     fn converts_one_constant_token_into_number_expression() {
@@ -29,12 +25,12 @@ mod parser_test {
         //act
         let expression = generate_expression(&mut tokens);
         //assert
-        assert_eq!(evaluate(&environment, expression), 5.0);
+        assert_eq!(evaluate(&environment, &expression), 5.0);
     }
     #[test]
     fn parser_adds_two_numbers_together() {
         //arrange
-        let mut tokens = vec![Token::LParen, Token::Oper(Operator::Plus), Token::Constant(5.0), Token::Constant(3.0), Token::RParen];
+        let mut tokens = vec![Token::LParen, Token::Oper(Operator::Add), Token::Constant(5.0), Token::Constant(3.0), Token::RParen];
         let environment = Environment::new();
         //act
         let expression = generate_expression(&mut tokens);
@@ -45,11 +41,12 @@ mod parser_test {
     #[test]
     fn parser_multiply_two_numbers_together() {
         //arrange
-        let mut tokens = vec![Token::LParen, Token::Oper(Operator::Plus), Token::Constant(5.0), Token::Constant(3.0), Token::RParen];
+        let mut tokens = vec![Token::LParen, Token::Oper(Operator::Mult), Token::Constant(5.0), Token::Constant(3.0), Token::RParen];
         let environment = Environment::new();
         //act
         let expression = generate_expression(&mut tokens);
         //assert
+        print!("{}", evaluate(&environment, &expression));
         assert_eq!(evaluate(&environment, &expression), 15.0);
     }
 

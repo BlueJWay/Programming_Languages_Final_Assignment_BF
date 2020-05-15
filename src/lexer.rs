@@ -2,7 +2,7 @@
 #[derive(Clone)]
 
 pub enum Operator {
-    Plus,
+    Add,
     Mult
 }
 
@@ -16,13 +16,13 @@ pub enum Token {
     Constant(f64)
 }
 
-pub fn Tokenize(s: &str) -> Vec<Token> {
+pub fn tokenize(s: &str) -> Vec<Token> {
     let mut tokens: Vec<Token> = Vec::<Token>::new();
     for c in s.chars() {
         match c {
             '(' => tokens.push(Token::LParen),
             ')' => tokens.push(Token::RParen),
-            '+' => tokens.push(Token::Oper(Operator::Plus)),
+            '+' => tokens.push(Token::Oper(Operator::Add)),
             '*' => tokens.push(Token::Oper(Operator::Mult)),
             '1' => tokens.push(Token::Constant(1.0)),
             '2' => tokens.push(Token::Constant(2.0)),
@@ -35,7 +35,7 @@ pub fn Tokenize(s: &str) -> Vec<Token> {
             '9' => tokens.push(Token::Constant(9.0)),
             '0' => tokens.push(Token::Constant(0.0)),
             _ => { }
+        }
     }
     return tokens;    
-}
 }

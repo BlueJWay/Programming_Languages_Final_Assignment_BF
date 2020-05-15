@@ -35,7 +35,7 @@ mod tests {
         // arrange
         let values = vec![Expression::Number(2.0), Expression::Number(2.0)];
         // act
-        let product = evaluate_multiplication(&Environment::new(), &Expression::Multiply(values));
+        let product = evaluate_multiplication(&Environment::new(), &Expression::Mult(values));
         // assert
         assert_eq!(4.0, product);
     }
@@ -53,3 +53,4 @@ mod tests {
         // assert
         assert_eq!(7.0, sum);
     }
+}
