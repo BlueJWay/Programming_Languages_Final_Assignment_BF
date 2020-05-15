@@ -10,8 +10,8 @@ pub enum Operator {
 #[derive(Clone)]
 
 pub enum Token {
-    Lparen,
-    Rparen,
+    LParen,
+    RParen,
     Oper(Operator),
     Constant(f64)
 }

@@ -11,11 +11,11 @@ pub fn evaluate_addition(environment: &Environment, add: &Expression) -> f64 {
 }
 
 pub fn evaluate_multiplication(environment: &Environment, mult: &Expression) -> f64 {
-    if let Expression::Multiply(expressions) = mult {
+    if let Expression::Mult(expressions) = mult {
         let iter = expressions.iter();
         iter.fold(1.0, |total, next| total * evaluate(environment, next))
     } else {
-        panic!("Multiply not provided")
+        panic!("Mult not provided")
     }
 }
 
@@ -41,7 +41,7 @@ pub fn evaluate_variable<'a>(environment: &'a Environment, var: &Expression) -> 
 pub fn evaluate(environment: &Environment, expression: &Expression) -> f64 {
     match expression {
         Expression::Add(_) => evaluate_addition(environment, expression),
-        Expression::Multiply(_) => evaluate_multiplication(environment, expression),
+        Expression::Mult(_) => evaluate_multiplication(environment, expression),
         Expression::Subtract(_) => evaluate_subtraction(environment, expression),
         Expression::Variable(_) => evaluate(environment,
             &evaluate_variable(environment, &expression)),

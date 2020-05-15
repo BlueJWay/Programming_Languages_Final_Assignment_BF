@@ -2,10 +2,10 @@ use crate::expression::*;
 use crate::lexer::*;
 
 pub fn generate_mult(v: &mut Vec<Token>) -> Expression {
-    let mut expressions = Vector::<Expression>::new();
+    let mut expressions = Vec::<Expression>::new();
     loop {
         match v[0] {
-            Token::Rparen => { v.remove(0); return Expression::Mult(expressions) },
+            Token::RParen => { v.remove(0); return Expression::Mult(expressions) },
             _ => expressions.push(generate_expression(v))
         }
     }
@@ -13,10 +13,10 @@ pub fn generate_mult(v: &mut Vec<Token>) -> Expression {
 
 
 pub fn generate_add(v: &mut Vec<Token>) -> Expression {
-    let mut expressions = Vector::<Expression>::new();
+    let mut expressions = Vec::<Expression>::new();
     loop {
         match v[0] {
-            Token::Rparen => { v.remove(0); return Expression::Add(expressions) },
+            Token::RParen => { v.remove(0); return Expression::Add(expressions) },
             _ => expressions.push(generate_expression(v))
         }
     }
